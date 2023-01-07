@@ -15,6 +15,8 @@ import LodgingPage from './pages/LodgingPage'; // ==> Page de détail d'un logem
 import AboutPage from './pages/AboutPage'; // Page "A propos"
 import ErrorPage from './pages/ErrorPage'; // Page d'erreur
 
+const RoutesList = ['home','lodging','about'];
+
 function AppRouter({ appData = [] }) {
 
     // @see https://blog.webdevsimplified.com/2022-07/react-router/
@@ -23,10 +25,10 @@ function AppRouter({ appData = [] }) {
             <Route path="/" element={ <HomePage/> }/>
             <Route path="/lodging/:id" element={ <LodgingPage/> }/>
             <Route path="/about" element={ <AboutPage/> }/>
-            <Route path="*" element={ <ErrorPage/> }/>
+            <Route path="*" element={ <ErrorPage httpCode={ 404 } Message={ 'Oups! La page que vous demandez n\'existe pas.' }/> }/>
         </Routes>
     );
 
 }
 
-export default AppRouter;
+export { RoutesList, AppRouter };
