@@ -59,25 +59,14 @@
                 @if $effect == true {
 
                     animation-name: dropdown-pan-content-inner---fold;
-                    animation-duration: 600ms;
+                    animation-duration: 800ms;
                     animation-fill-mode: forwards;
-
-                    // Sur les écrans < 450px, la neutralidation du padding est un peu brutale, donc on compense avec une transition
-                    padding: 0;
-                    transition: padding 600ms 200ms;
 
                 }
                 @else {
 
-                    margin-top: -50%;
-                    padding: 0;
+                    transform: translateY(-100%);
                     opacity: 0;
-
-                }
-
-                // Bug visuel persistant sur les petits télephones
-                @media screen and (max-width: 300px) {
-
                     height: 0;
 
                 }
@@ -146,17 +135,9 @@
                 }
                 @else {
 
-                    margin-top: 0;
+                    //margin-top: 0;
+                    transform: translateY(0);
                     opacity: 1;
-
-                }
-
-                padding: 30px 12px 27px 20px;
-
-                // Sur les téléphone
-                @media #{$phone-break-point} {
-
-                    padding: 20px 8px 10px 12px;
 
                 }
 

@@ -272,6 +272,13 @@ div#Lodging-inner {
 
                 width: 46.94%;
 
+                & > div.dropdown-pan-content > div.dropdown-pan-content-inner > p,
+                & > div.dropdown-pan-content > div.dropdown-pan-content-inner > ul {
+
+                    padding: 30px 12px 27px 20px;
+
+                }
+
             }
         }
 
@@ -500,11 +507,18 @@ div#Lodging-inner {
 
                 flex-flow: column nowrap;
                 justify-content: space-between;
-                gap: 20px;;
+                gap: 20px;
 
                 & > div.dropdown-pan {
 
                     width: 100%;
+
+                    & > div.dropdown-pan-content > div.dropdown-pan-content-inner > p,
+                    & > div.dropdown-pan-content > div.dropdown-pan-content-inner > ul {
+
+                        padding: 20px 8px 10px 12px;
+
+                    }
 
                 }
             }

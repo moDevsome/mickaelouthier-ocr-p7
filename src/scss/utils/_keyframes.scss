@@ -35,15 +35,17 @@
 @keyframes dropdown-pan-content-inner---fold {
 
     0% {
-        margin-top: 0;
         opacity: 1;
+        height: fit-content;
+        transform: translateY(0);
     }
     65% {
         opacity: 0;
     }
-    to {
+    100% {
         opacity: 0;
-        margin-top: -50%;
+        height: 0;
+        transform: translateY(-100%);
     }
 
 }
@@ -85,14 +87,16 @@
 
     0% {
         opacity: 0;
-        margin-top: -50%;
+        height: 0;
+        transform: translateY(-100%);
     }
     65% {
         opacity: 1;
     }
     to {
-        margin-top: 0;
         opacity: 1;
+        height: fit-content;
+        transform: translateY(0);
     }
 
 }
