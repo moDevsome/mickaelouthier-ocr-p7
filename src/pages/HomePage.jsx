@@ -8,17 +8,14 @@
  * ------------------------------------------------------------------------
  */
 
+import BannerComponent from '../components/utils/BannerComponent';
 import Thumb from '../assets/thumb-mockup.png';
 
 function HomePage() {
 
     return(
         <main>
-            <div id="_Section1">
-                <div id="_Section1-inner">
-                    <p>Chez vous, partout et ailleurs</p>
-                </div>
-            </div>
+            <BannerComponent id={ '_Section1' } content={ <p>Chez vous, partout et ailleurs</p> }/>
             <div id="Gallery">
                 <div id="Gallery-inner">
                     <a className="thumb" href="#">
