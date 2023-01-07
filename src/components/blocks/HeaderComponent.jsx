@@ -8,14 +8,16 @@
  * ----------------------------------------------------------------
  */
 
+import { Link } from "react-router-dom";
+
 function HeaderComponent() {
 
     return(
         <header>
         <div id="Header-inner">
             <nav>
-                <a href="#">Accueil</a>
-                <a href="#">A propos</a>
+                <Link to="/">Accueil</Link>
+                <Link to="/about">A propos</Link>
             </nav>
             <div id="logo">
                 <svg width="211" height="68" viewBox="0 0 211 68" fill="none" xmlns="http://www.w3.org/2000/svg">
