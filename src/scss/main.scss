@@ -3,8 +3,16 @@
 */
 
 @import './utils/variables';
+@import './utils/keyframes';
+@import './utils/mixins';
 @import './base/base';
+
+/** Import components **/
+@import './components/dropdown-pan';
+
+/** Import layouts **/
 @import './layouts/header';
 @import './layouts/home';
+@import './layouts/lodging';
 @import './layouts/error';
 @import './layouts/footer';

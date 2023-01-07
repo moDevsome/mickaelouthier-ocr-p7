@@ -1,11 +1,11 @@
 /**
- * --------------------------------------------------------
+ * ----------------------------------------------------------------
  * FooterComponent
  *
- * Contain the elements displayed at the bottom of the page
+ * Contient les élements à afficher dans la partie basse de la page
  *
  * styles: "/scss/layouts/_footer.scss"
- * --------------------------------------------------------
+ * ----------------------------------------------------------------
  */
 
 function FooterComponent() {

@@ -1,0 +1,98 @@
+// used at /scss/components/_dropdown-pan.scss
+@keyframes dropdown-pan---fold {
+
+    from {
+        background-color: rgb(246, 246, 246);
+    }
+    to {
+        background-color: #fff;
+    }
+
+}
+
+@keyframes dropdown-pan-control---fold {
+
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+
+}
+
+@keyframes dropdown-pan-content---fold {
+
+    from {
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(0);
+    }
+
+}
+
+@keyframes dropdown-pan-content-inner---fold {
+
+    0% {
+        margin-top: 0;
+        opacity: 1;
+    }
+    65% {
+        opacity: 0;
+    }
+    to {
+        opacity: 0;
+        margin-top: -50%;
+    }
+
+}
+
+@keyframes dropdown-pan---unfold {
+
+    from {
+        background-color: #fff;
+    }
+    to {
+        background-color: rgb(246, 246, 246);
+    }
+
+}
+
+@keyframes dropdown-pan-control---unfold {
+
+    from {
+        transform: rotate(180deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+
+}
+
+@keyframes dropdown-pan-content---unfold {
+
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
+
+}
+
+@keyframes dropdown-pan-content-inner---unfold {
+
+    0% {
+        opacity: 0;
+        margin-top: -50%;
+    }
+    65% {
+        opacity: 1;
+    }
+    to {
+        margin-top: 0;
+        opacity: 1;
+    }
+
+}

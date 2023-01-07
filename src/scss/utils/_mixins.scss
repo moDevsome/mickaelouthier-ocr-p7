@@ -1,0 +1,169 @@
+/**
+* Animation permettant de plier ou déplier le contenu d'un dropdown-pan
+*
+* @param $state TRUE => plier, FALSE => déplier
+* @param $effect TRUE => on joue les effets d'animation en utilisant les délais et les durées, FALSE => on plie ou on déplie en mode "on / off"
+*/
+@mixin dropdown-pan--mixin($state, $effect) {
+
+    @if $state == true { // On replie le panneau
+
+        // on est à la racine du composant (class : dropdown-pan)
+        @if $effect == true {
+
+            animation-name: dropdown-pan---fold;
+            animation-delay: 300ms;
+            animation-fill-mode: forwards;
+
+        }
+        @else {
+
+            background-color: #fff;
+
+        }
+
+        & > div.dropdown-pan-header > div.dropdown-pan-control {
+
+            @if $effect == true {
+
+                animation-name: dropdown-pan-control---fold;
+                animation-duration: 350ms;
+                animation-fill-mode: forwards;
+
+            }
+            @else {
+
+                transform: rotate(180deg);
+
+            }
+
+        }
+
+        & > div.dropdown-pan-content {
+
+            @if $effect == true {
+
+                animation-name: dropdown-pan-content---fold;
+                animation-duration: 650ms;
+                animation-fill-mode: forwards;
+
+            }
+            @else {
+
+                transform: scaleY(0);
+
+            }
+
+            & > div.dropdown-pan-content-inner {
+
+                @if $effect == true {
+
+                    animation-name: dropdown-pan-content-inner---fold;
+                    animation-duration: 600ms;
+                    animation-fill-mode: forwards;
+
+                    // Sur les écrans < 450px, la neutralidation du padding est un peu brutale, donc on compense avec une transition
+                    padding: 0;
+                    transition: padding 600ms 200ms;
+
+                }
+                @else {
+
+                    margin-top: -50%;
+                    padding: 0;
+                    opacity: 0;
+
+                }
+
+                // Bug visuel persistant sur les petits télephones
+                @media screen and (max-width: 300px) {
+
+                    height: 0;
+
+                }
+
+            }
+
+        }
+
+    }
+    @else { // On déplie le panneau
+
+        // on est à la racine du composant (class : dropdown-pan)
+        @if $effect == true {
+
+            animation-name: dropdown-pan---unfold;
+            animation-delay: 300ms;
+            animation-fill-mode: forwards;
+
+        }
+        @else {
+
+            background-color: rgb(246, 246, 246);
+
+        }
+
+        & > div.dropdown-pan-header > div.dropdown-pan-control {
+
+            @if $effect == true {
+
+                animation-name: dropdown-pan-control---unfold;
+                animation-duration: 350ms;
+                animation-fill-mode: forwards;
+
+            }
+            @else {
+
+                transform: rotate(0);
+
+            }
+
+        }
+
+        & > div.dropdown-pan-content {
+
+            @if $effect == true {
+
+                animation-name: dropdown-pan-content---unfold;
+                animation-duration: 650ms;
+                animation-fill-mode: forwards;
+
+            }
+            @else {
+
+                transform: scaleY(1);
+
+            }
+
+            & > div.dropdown-pan-content-inner {
+
+                @if $effect == true {
+
+                    animation-name: dropdown-pan-content-inner---unfold;
+                    animation-duration: 600ms;
+                    animation-fill-mode: forwards;
+
+                }
+                @else {
+
+                    margin-top: 0;
+                    opacity: 1;
+
+                }
+
+                padding: 30px 12px 27px 20px;
+
+                // Sur les téléphone
+                @media #{$phone-break-point} {
+
+                    padding: 20px 8px 10px 12px;
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

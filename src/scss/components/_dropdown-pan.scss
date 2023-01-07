@@ -1,0 +1,157 @@
+div.dropdown-pan {
+
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: rgba(246, 246, 246, 1);
+    border-radius: 10px;
+
+    & > div.dropdown-pan-header {
+
+        position: relative;
+        height: 52px;
+        padding-left: 20px;
+        padding-right: 12px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $color-red;
+        border-radius: 10px;
+        cursor: pointer;
+
+        & > div.dropdown-pan-title {
+
+            font-size: 18px;
+            font-size: 500;
+            line-height: 26px;
+            color: #fff;
+
+        }
+
+        & > div.dropdown-pan-control {
+
+            width: 16px;
+
+            & > svg {
+
+                width: 100%;
+                display: block;
+
+            }
+
+        }
+
+    }
+
+    & > div.dropdown-pan-header:hover {
+
+        & > div.dropdown-pan-title {
+
+            font-weight: 700;
+
+        }
+
+    }
+
+    & > div.dropdown-pan-content {
+
+        position: relative; // use to fold
+        height: fit-content;
+        background-color: rgb(246, 246, 246);
+        border-radius: 10px;
+        overflow: hidden;
+
+        transform-origin: top;
+
+        & > div.dropdown-pan-content-inner {
+
+            position: relative; // use to fold
+            font-size: 18px;
+            line-height: 26px;
+            color: $color-red;
+
+        }
+
+    }
+
+    &__collapsed {
+
+        @include dropdown-pan--mixin(true, false);
+
+    }
+
+    &__expanded {
+
+        @include dropdown-pan--mixin(false, false);
+
+    }
+
+    &__collapsed_anim {
+
+        @include dropdown-pan--mixin(true, true);
+
+    }
+
+    &__expanded_anim {
+
+        @include dropdown-pan--mixin(false, true);
+
+    }
+
+}
+
+
+div.dropdown-lodging-equipements > div.dropdown-pan-content > div.dropdown-pan-content-inner > ul > li {
+
+    list-style: none;
+
+}
+
+// Sur les téléphones
+@media #{$phone-break-point} {
+
+    div.dropdown-pan {
+
+        & > div.dropdown-pan-header {
+
+            height: 30px;
+            padding-left: 12px;
+            padding-right: 12px;
+            border-radius: 5px;
+
+            & > div.dropdown-pan-title {
+
+                font-size: 13px;
+                line-height: 19px;
+
+            }
+
+            & > div.dropdown-pan-control {
+
+                width: 9px;
+
+            }
+
+        }
+
+        & > div.dropdown-pan-content {
+
+            position: relative; // use to fold
+            height: fit-content;
+            background-color: rgb(246, 246, 246);
+            border-radius: 10px;
+            overflow: hidden;
+
+            transform-origin: top;
+
+            & > div.dropdown-pan-content-inner {
+
+                font-size: 12px;
+                line-height: 18px;
+
+            }
+
+        }
+
+    }
+}

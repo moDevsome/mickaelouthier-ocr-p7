@@ -1,11 +1,11 @@
 /**
- * ------------------------------------------------------------------------
+ * ----------------------------------------------------------------
  * HeaderComponent
  *
- * Contain the elements displayed at th top of the page (Logo and Main nav)
+ * Contient les élements à afficher dans la partie haute de la page
  *
  * styles: "/scss/layouts/_header.scss"
- * ------------------------------------------------------------------------
+ * ----------------------------------------------------------------
  */
 
 function HeaderComponent() {
