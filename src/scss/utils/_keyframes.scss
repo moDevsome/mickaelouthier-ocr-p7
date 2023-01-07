@@ -36,16 +36,14 @@
 
     0% {
         opacity: 1;
-        height: fit-content;
-        transform: translateY(0);
+        margin-top: initial;
     }
     65% {
         opacity: 0;
     }
     100% {
         opacity: 0;
-        height: 0;
-        transform: translateY(-100%);
+        margin-top: -200%;
     }
 
 }
@@ -87,16 +85,13 @@
 
     0% {
         opacity: 0;
-        height: 0;
-        transform: translateY(-100%);
+        margin-top: -10%; // on repart de 10% pour éviter la latence du à la "redescente de l'élement"
     }
     65% {
         opacity: 1;
     }
     to {
         opacity: 1;
-        height: fit-content;
-        transform: translateY(0);
     }
 
 }

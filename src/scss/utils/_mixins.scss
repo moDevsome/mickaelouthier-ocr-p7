@@ -6,6 +6,21 @@
 */
 @mixin dropdown-pan--mixin($state, $effect) {
 
+    & > div.dropdown-pan-content > div.dropdown-pan-content-inner {
+
+        // La padding provoque un problème d'espace superflux en dessous du composant lorsqu'il est replié.
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+
+        & > * {
+
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+
+        }
+
+    }
+
     @if $state == true { // On replie le panneau
 
         // on est à la racine du composant (class : dropdown-pan)
@@ -59,15 +74,14 @@
                 @if $effect == true {
 
                     animation-name: dropdown-pan-content-inner---fold;
-                    animation-duration: 800ms;
+                    animation-duration: 600ms;
                     animation-fill-mode: forwards;
 
                 }
                 @else {
 
-                    transform: translateY(-100%);
+                    margin-top: -200% !important;
                     opacity: 0;
-                    height: 0;
 
                 }
 
@@ -135,8 +149,6 @@
                 }
                 @else {
 
-                    //margin-top: 0;
-                    transform: translateY(0);
                     opacity: 1;
 
                 }
