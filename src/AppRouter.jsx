@@ -17,13 +17,13 @@ import ErrorPage from './pages/ErrorPage'; // Page d'erreur
 
 const RoutesList = ['home','lodging','about'];
 
-function AppRouter({ appData = [] }) {
+function AppRouter({ lodgingList, updateLodgingList }) {
 
     // @see https://blog.webdevsimplified.com/2022-07/react-router/
     return(
         <Routes>
-            <Route path="/" element={ <HomePage/> }/>
-            <Route path="/lodging/:id" element={ <LodgingPage/> }/>
+            <Route path="/" element={ <HomePage lodgingList={ lodgingList } updateLodgingList={ updateLodgingList }/> }/>
+            <Route path="/lodging/:id" element={ <LodgingPage lodgingList={ lodgingList }/> }/>
             <Route path="/about" element={ <AboutPage/> }/>
             <Route path="*" element={ <ErrorPage httpCode={ 404 } Message={ 'Oups! La page que vous demandez n\'existe pas.' }/> }/>
         </Routes>

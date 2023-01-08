@@ -50,7 +50,7 @@ function LodgingControlComponent({ direction = 'left' }) {
 
 }
 
-function LodgingPage() {
+function LodgingPage({ lodgingList }) {
 
     // Mockup
     const panLeftTitle = <h2>Description</h2>
