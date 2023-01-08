@@ -1,6 +1,6 @@
 header > div#Header-inner {
 
-    margin: 40px auto 63px auto;
+    margin: 40px auto 59px auto;
     display: flex;
     flex-flow: row-reverse wrap;
     align-items: center;
@@ -36,6 +36,19 @@ header > div#Header-inner {
 
 }
 
+// Adaptation de la margin-bottom en fonction de la page affichée
+div#app-body.lodging > header > div#Header-inner {
+
+    margin-bottom: 15px;
+
+}
+
+div#app-body.about > header > div#Header-inner {
+
+    margin-bottom: 39px;
+
+}
+
 // On the Pads
 @media #{$pad-break-point} {
 
@@ -54,7 +67,7 @@ header > div#Header-inner {
 
     header > div#Header-inner {
 
-        margin: 20px auto 19px auto;
+        margin: 20px auto 2px auto;
 
         & > nav {
 
@@ -71,4 +84,28 @@ header > div#Header-inner {
 
         }
     }
+
+    div#app-body.lodging > header > div#Header-inner {
+
+        margin-bottom: 14px;
+
+    }
+
+    div#app-body.about > header > div#Header-inner {
+
+        margin-bottom: 2px;
+
+    }
+
+    // Sur le galaxy fold
+    @media screen and (max-width: 300px) {
+
+        div#app-body.about > header > div#Header-inner {
+
+            margin-bottom: 0;
+
+        }
+
+    }
+
 }
