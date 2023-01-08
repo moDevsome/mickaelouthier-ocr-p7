@@ -38,11 +38,19 @@ function HomePage({ lodgingList, updateLodgingList }) {
 
         });
 
+
     if(lodgingList.length === 0) { // On a eu une réponse de l'API mais elle est vide
 
         return(
-            <p>Nous n'avons aucun logement disponible pour le moment.</p>
-        )
+            <main>
+                <BannerComponent id={ '_Section1' } content={ <p>Chez vous, partout et ailleurs</p> }/>
+                <div id="Gallery">
+                    <div id="Gallery-inner">
+                        <p id="no-results">Nous n'avons aucun logement disponible pour le moment.</p>
+                    </div>
+                </div>
+            </main>
+        );
 
     }
     else { // On affiche la liste des biens
@@ -52,30 +60,16 @@ function HomePage({ lodgingList, updateLodgingList }) {
                 <BannerComponent id={ '_Section1' } content={ <p>Chez vous, partout et ailleurs</p> }/>
                 <div id="Gallery">
                     <div id="Gallery-inner">
-                        <Link className="thumb" to="/lodging/test">
-                            <img alt="Titre de la location" src={ Thumb }/>
-                            <span>Titre de la location</span>
-                        </Link>
-                        <a className="thumb" href="#">
-                            <img alt="Titre de la location" src={ Thumb }/>
-                            <span>Titre de la location</span>
-                        </a>
-                        <a className="thumb" href="#">
-                            <img alt="Titre de la location" src={ Thumb }/>
-                            <span>Titre de la location</span>
-                        </a>
-                        <a className="thumb" href="#">
-                            <img alt="Titre de la location" src={ Thumb }/>
-                            <span>Titre de la location</span>
-                        </a>
-                        <a className="thumb" href="#">
-                            <img alt="Titre de la location" src={ Thumb }/>
-                            <span>Titre de la location</span>
-                        </a>
-                        <a className="thumb" href="#">
-                            <img alt="Titre de la location" src={ Thumb }/>
-                            <span>Titre de la location</span>
-                        </a>
+                    {
+                        lodgingList.map( (lodging, key) => {
+                            return(
+                                <Link key={ key +'-'+lodging.id } className="thumb" to={ '/lodging/'+ lodging.id }>
+                                    <img alt={ 'Location '+ lodging.title } src={ lodging.cover }/>
+                                    <span>{ lodging.title }</span>
+                                </Link>
+                            )
+                        })
+                    }
                     </div>
                 </div>
             </main>

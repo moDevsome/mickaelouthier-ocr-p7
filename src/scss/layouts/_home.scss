@@ -27,8 +27,17 @@ div#Gallery {
 
             & > img {
 
+                /*
                 width: 100%;
                 display: block;
+                */
+
+                // À retirer si l'on utilise pas les images des logements
+                width: 100%;
+                display: block;
+                object-fit: cover;
+                height: 100%;
+                border-radius: 10px;
 
             }
 
@@ -42,6 +51,22 @@ div#Gallery {
                 font-weight: 500;
                 line-height: 25px;
                 color: #fff;
+
+                @media screen and (max-width: 890px) {
+
+                    width: 65%;
+                    font-size: 16px;
+                    line-height: 21px;
+
+                }
+
+                @media screen and (max-width: 490px) {
+
+                    width: 75%;
+                    font-size: 14px;
+                    line-height: 18px;
+
+                }
 
             }
 
@@ -61,6 +86,18 @@ div#Gallery {
 
 }
 
+p#no-results {
+
+    width: 100%;
+    margin-bottom: 124px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 35px;
+    text-align: center;
+    color: #555;
+
+}
+
 // On the Pads
 @media #{$pad-break-point} {
 
@@ -74,6 +111,18 @@ div#Gallery {
             & > a.thumb {
 
                 width: 45%;
+
+                & > span {
+
+                    @media screen and (max-width: 490px) {
+
+                        width: 75%;
+                        font-size: 14px;
+                        line-height: 18px;
+
+                    }
+
+                }
 
             }
 
@@ -113,9 +162,24 @@ div#Gallery {
                 border-radius: 10px;
                 overflow: hidden;
 
+                & > span {
+
+                    font-size: 18px;
+                    line-height: 25px;
+
+                }
+
             }
 
         }
+
+    }
+
+    p#no-results {
+
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
 
     }
 
