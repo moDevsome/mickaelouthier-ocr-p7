@@ -13,10 +13,18 @@ import Thumb from '../assets/thumb-mockup.png';
 import useFetchLodgingList from '../hooks/useFetchLodgingList.jsx'
 import ErrorPage from './ErrorPage';
 
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
 
 function HomePage({ lodgingList, updateLodgingList }) {
+
+    useEffect(() => {
+
+            // On met à jour la balise <title> et la class de la Div englobant l'App
+            document.title = 'Bienvenue chez Kaza !';
+            document.querySelector('div#app-body').className = 'home';
+
+    }, []);
 
     /** Récupère la liste des logement via la fonction "useFetchLodgingList" */
     // QUESTION : EST-CE QUE JE DOIS FAIRE LA MEME CHOSE SUR LA PAGE LODGING ??
@@ -54,10 +62,6 @@ function HomePage({ lodgingList, updateLodgingList }) {
 
     }
     else { // On affiche la liste des biens
-
-        // On met à jour la balise <title> et la class de la Div englobant l'App
-        document.title = 'Bienvenue chez Kaza !';
-        document.querySelector('div#app-body').className = 'home';
 
         return(
             <main>
