@@ -9,7 +9,7 @@ div#Error-inner {
         margin-bottom: 70px;
         font-size: 288px;
         font-weight: 700;
-        line-height: 410px;
+        line-height: 263px;
 
     }
 
@@ -69,8 +69,6 @@ div#Error-inner {
 @media #{$phone-break-point} {
 
     div#Error-inner {
-
-        padding-top: 140px;
 
         & > h1 {
 

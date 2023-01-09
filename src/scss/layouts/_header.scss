@@ -49,6 +49,12 @@ div#app-body.about > header > div#Header-inner {
 
 }
 
+div#app-body.error > header > div#Header-inner {
+
+    margin-bottom: 159px;
+
+}
+
 // On the Pads
 @media #{$pad-break-point} {
 

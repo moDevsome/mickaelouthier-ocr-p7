@@ -8,10 +8,12 @@
  * ------------------------------------------------------------------------
  */
 
+import { Link } from "react-router-dom";
+
 function ErrorPage({ httpCode = 500, Message = 'Aïe, aïe, aïe... notre application a un petit souci..., merci de réessayer un peu plus tard.' }) {
 
-    //TODO:remplacer par un composant Link/>
-    const backToHome = httpCode !== 500 ? <a href="#">Retourner sur la page d’accueil</a> : '';
+    document.title = 'Erreur '+ httpCode;
+    document.querySelector('div#app-body').className = 'error';
 
     return(
         <main>
@@ -19,7 +21,7 @@ function ErrorPage({ httpCode = 500, Message = 'Aïe, aïe, aïe... notre applic
                 <div id="Error-inner">
                     <h1>{ httpCode }</h1>
                     <p>{ Message }</p>
-                    { backToHome }
+                    { <Link title="Retourner sur la page d’accueil" to="/">Retourner sur la page d’accueil</Link> }
                 </div>
             </div>
         </main>
