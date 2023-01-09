@@ -96,8 +96,9 @@ function LodgingPage({ lodgingList }) {
         // Si l'objet n'a pas été trouvé, on passe en erreur 404
         if(Object.values(lodging).length === 0) return <ErrorPage httpCode={ 404 } Message={ 'Oups! La page que vous demandez n\'existe pas.' }/>
 
-        // On met à jour la balise <title>
+        // On met à jour la balise <title> et la class de la Div englobant l'App
         document.title = lodging.title;
+        document.querySelector('div#app-body').className = 'lodging';
 
         return(
             <main>

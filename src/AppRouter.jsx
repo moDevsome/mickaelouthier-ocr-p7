@@ -15,8 +15,6 @@ import LodgingPage from './pages/LodgingPage'; // ==> Page de détail d'un logem
 import AboutPage from './pages/AboutPage'; // Page "A propos"
 import ErrorPage from './pages/ErrorPage'; // Page d'erreur
 
-const RoutesList = ['home','lodging','about'];
-
 function AppRouter({ lodgingList, updateLodgingList }) {
 
     // @see https://blog.webdevsimplified.com/2022-07/react-router/
@@ -31,4 +29,4 @@ function AppRouter({ lodgingList, updateLodgingList }) {
 
 }
 
-export { RoutesList, AppRouter };
+export default AppRouter;

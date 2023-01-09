@@ -55,6 +55,10 @@ function HomePage({ lodgingList, updateLodgingList }) {
     }
     else { // On affiche la liste des biens
 
+        // On met à jour la balise <title> et la class de la Div englobant l'App
+        document.title = 'Bienvenue chez Kaza !';
+        document.querySelector('div#app-body').className = 'home';
+
         return(
             <main>
                 <BannerComponent id={ '_Section1' } content={ <p>Chez vous, partout et ailleurs</p> }/>

@@ -14,6 +14,10 @@ import DropdownPanComponent from '../components/utils/DropdownPanComponent';
 
 function AboutPage() {
 
+    // On met à jour la balise <title> et la class de la Div englobant l'App
+    document.title = 'À propos';
+    document.querySelector('div#app-body').className = 'about';
+
     const fiabilityText = <article>
         <p>Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes.</p>
     </article>
