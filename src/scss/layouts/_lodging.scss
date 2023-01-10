@@ -13,7 +13,8 @@ div#Lodging-inner {
         & > div#Lodging-gallery-inner {
 
             display: flex;
-            flex-flow: row wrap;
+            flex-flow: row nowrap;
+            overflow: hidden;
 
             & > div.lodging-picture {
 
@@ -44,7 +45,7 @@ div#Lodging-inner {
             flex-flow: row wrap;
             justify-content: space-between;
 
-            & > div.lodging-gallery-control {
+            & > button.lodging-gallery-control {
 
                 width: 71px;
                 height: 100%;
@@ -52,6 +53,8 @@ div#Lodging-inner {
                 flex-flow: column wrap;
                 justify-content: center;
                 align-items: flex-end;
+                background: none;
+                border: none;
 
                 &_right {
 
@@ -287,6 +290,22 @@ div#Lodging-inner {
     }
 }
 
+div#Lodging-inner > div#Lodging-gallery {
+
+    &[data-pictures-count="0"] {
+
+        display: none;
+
+    }
+
+    &[data-pictures-count="1"] > div#Lodging-gallery-controls {
+
+        display: none;
+
+    }
+
+}
+
 // Sur les tablettes
 @media #{$pad-break-point} {
 
@@ -310,7 +329,7 @@ div#Lodging-inner {
 
             & > div#Lodging-gallery-controls {
 
-                & > div.lodging-gallery-control {
+                & > button.lodging-gallery-control {
 
                     width: 56px;
 
@@ -402,7 +421,7 @@ div#Lodging-inner {
 
             & > div#Lodging-gallery-controls {
 
-                & > div.lodging-gallery-control {
+                & > button.lodging-gallery-control {
 
                     width: 18px;
 

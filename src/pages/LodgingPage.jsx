@@ -18,32 +18,8 @@ import useFetchLodgingList from '../hooks/useFetchLodgingList.jsx'
 
 import ErrorPage from './ErrorPage';
 import { useState, useRef } from 'react';
+import LodgingGalleryComponent from '../components/blocks/LodgingGalleryComponent';
 
-/** Internal component to render gallery picture  **/
-function LodgingPictureComponent({ src, alt }) {
-
-    return(
-        <div className="lodging-picture">
-            <img src={ src } alt={ alt }/>
-        </div>
-    );
-
-}
-
-/** Internal component to render gallery control  **/
-function LodgingControlComponent({ direction = 'left' }) {
-
-    const controlClassName = direction === 'right' ? 'right' : 'left';
-
-    return(
-        <div className={ 'lodging-gallery-control lodging-gallery-control_'+ controlClassName }>
-            <svg width="48" height="80" viewBox="0 0 48 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M47.04 7.78312L39.92 0.703125L0.359985 40.3031L39.96 79.9031L47.04 72.8231L14.52 40.3031L47.04 7.78312Z" fill="white"/>
-            </svg>
-        </div>
-    );
-
-}
 
 // TODO:retirer la propriété "lodgingList" si le fait d'intéroger le back-end est confirmé
 function LodgingPage({ lodgingList }) {
@@ -104,21 +80,7 @@ function LodgingPage({ lodgingList }) {
             <main>
                 <div id="Lodging">
                     <div id="Lodging-inner">
-                        <div id="Lodging-gallery">
-                            <div id="Lodging-gallery-controls">
-                                <LodgingControlComponent direction="left"/>
-                                <LodgingControlComponent direction="right"/>
-                            </div>
-                            <div id="Lodging-gallery-inner">
-                                <LodgingPictureComponent src={ Img } alt={ 'It s a LodgingPictureComponent render !!' } />
-                                <LodgingPictureComponent src={ Img } alt={ 'It s a LodgingPictureComponent render !!' } />
-                                <LodgingPictureComponent src={ Img } alt={ 'It s a LodgingPictureComponent render !!' } />
-                                <LodgingPictureComponent src={ Img } alt={ 'It s a LodgingPictureComponent render !!' } />
-                            </div>
-                            <div id="Lodging-gallery-pagi">
-                                1/4
-                            </div>
-                        </div>
+                        <LodgingGalleryComponent lodgingPictures={ lodging.pictures } lodgingTitle={ lodging.title }/>
                         <article id="Lodging-details">
                             <div id="Lodging-details-header">
                                 <section id="Lodging-details-header-left">
