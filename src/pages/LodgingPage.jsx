@@ -15,7 +15,7 @@ import { useParams } from 'react-router-dom';
 import ErrorPage from './ErrorPage';
 
 import DropdownPanComponent from '../components/utils/DropdownPanComponent';
-import LodgingGalleryComponent from '../components/blocks/LodgingGalleryComponent';
+import LodginSliderComponent from '../components/blocks/LodginSliderComponent';
 import useFetchLodgingList from '../hooks/useFetchLodgingList.jsx'
 
 function LodgingPage() {
@@ -59,7 +59,7 @@ function LodgingPage() {
             <main>
                 <div id="Lodging">
                     <div id="Lodging-inner">
-                        <LodgingGalleryComponent lodgingPictures={ lodging.pictures } lodgingTitle={ lodging.title }/>
+                        <LodginSliderComponent lodgingPictures={ lodging.pictures } lodgingTitle={ lodging.title }/>
                         <article id="Lodging-details">
                             <div id="Lodging-details-header">
                                 <section id="Lodging-details-header-left">

@@ -1,0 +1,192 @@
+$lodging-slider-height: 415px;
+
+div#Lodging-slider {
+
+    position: relative;
+    height: $lodging-slider-height;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 25px;
+
+    & > div#Lodging-slider-inner {
+
+        display: flex;
+        flex-flow: row nowrap;
+        overflow: hidden;
+
+        & > div.lodging-picture {
+
+            width: 100%;
+            height: $lodging-slider-height;
+            overflow: hidden;
+
+            & > img {
+
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+
+            }
+
+        }
+
+    }
+
+    & > div#Lodging-slider-controls {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+
+        & > button.lodging-slider-control {
+
+            width: 70px;
+            height: 100%;
+            padding: 0;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: flex-end;
+            background: none;
+            border: none;
+
+            &_right {
+
+                transform: rotateY(180deg);
+
+            }
+
+            & > svg {
+
+                width: 47px;
+                display: block;
+                cursor: pointer;
+
+            }
+
+            & > svg:hover > path {
+
+                fill: $color-red;
+
+                transition: fill 450ms;
+
+            }
+
+        }
+
+    }
+
+    & > div#Lodging-slider-pagi {
+
+        position: absolute;
+        left: 0;
+        bottom: 25px;
+        width: 100%;
+        font-size: 18px;
+        font-weight: 500;
+        color: #fff;
+        line-height: 26px;
+        text-align: center;
+
+    }
+
+}
+
+div#Lodging-inner > div#Lodging-slider {
+
+    &[data-pictures-count="0"] {
+
+        display: none;
+
+    }
+
+    &[data-pictures-count="1"] > div#Lodging-slider-controls {
+
+        display: none;
+
+    }
+
+}
+
+// Sur les tablettes
+@media #{$pad-break-point} {
+
+    $lodging-slider-height: 315px;
+
+    div#Lodging-slider {
+
+        height: $lodging-slider-height;
+
+        & > div#Lodging-slider-inner {
+
+            & > div.lodging-picture {
+
+                height: $lodging-slider-height;
+
+            }
+
+        }
+
+        & > div#Lodging-slider-controls {
+
+            & > button.lodging-slider-control {
+
+                width: 56px;
+
+                & > svg {
+
+                    width: 32px;
+
+                }
+
+            }
+
+        }
+
+    }
+}
+
+// Sur les téléphones
+@media #{$phone-break-point} {
+
+    $lodging-slider-height: 255px;
+
+    div#Lodging-slider {
+
+        height: $lodging-slider-height;
+        margin-bottom: 15px;
+
+        & > div#Lodging-slider-inner {
+
+            & > div.lodging-picture {
+
+                height: $lodging-slider-height;
+
+            }
+
+        }
+
+        & > div#Lodging-slider-controls {
+
+            & > button.lodging-slider-control {
+
+                width: 18px;
+
+                & > svg {
+
+                    width: 12px;
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

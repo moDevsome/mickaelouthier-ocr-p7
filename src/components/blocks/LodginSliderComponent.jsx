@@ -1,10 +1,10 @@
 /**
  * --------------------------------------------------------------------------
- * LodgingGalleryComponent
+ * LodginSliderComponent
  *
  * Affiche un diaporama contenant les images de la page détaillée du logement
  *
- * styles: "/scss/components/_lodging-gallery.scss"
+ * styles: "/scss/components/_lodging-slider.scss"
  * --------------------------------------------------------------------------
  */
 
@@ -16,7 +16,7 @@ import { useEffect, useState, useRef } from "react";
  * @param lodgingTitle string Libellé du logement utilisé pour l'attribut Alt des photos
  * @returns Jsx
  */
-function LodgingGalleryComponent({ lodgingPictures, lodgingTitle }) {
+function LodginSliderComponent({ lodgingPictures, lodgingTitle }) {
 
     const [currentPicture, updateCurrentPicture] = useState(1);
     const backWard = useRef(false); // passe à FALSE lorsque l'on va sur la gauche en étant en butté
@@ -123,13 +123,13 @@ function LodgingGalleryComponent({ lodgingPictures, lodgingTitle }) {
     }
 
     return(
-        <div id="Lodging-gallery" data-pictures-count={ lodgingPictures.length }>
-            <div id="Lodging-gallery-controls">
+        <div id="Lodging-slider" data-pictures-count={ lodgingPictures.length }>
+            <div id="Lodging-slider-controls">
                 {
                     ['left', 'right'].map((direction) => {
 
                         return(
-                            <button key={ direction } className={ 'lodging-gallery-control lodging-gallery-control_'+ direction } onClick={ () => {
+                            <button key={ direction } className={ 'lodging-slider-control lodging-slider-control_'+ direction } onClick={ () => {
 
                                 if(backWard.current === false && forWard.current === false) {
 
@@ -178,7 +178,7 @@ function LodgingGalleryComponent({ lodgingPictures, lodgingTitle }) {
                     })
                 }
             </div>
-            <div id="Lodging-gallery-inner" style={
+            <div id="Lodging-slider-inner" style={
                 innnerStyle
             }>
                 {
@@ -194,7 +194,7 @@ function LodgingGalleryComponent({ lodgingPictures, lodgingTitle }) {
                 }
                 { displayTempPicture && <div id="lodging-picture-temp-animate" className="lodging-picture"><img src={ lodgingPictures[ 0 ] } alt={ lodgingTitle + ' - Photo '+ (lodgingPictures.length + 1).toString()  }/></div> }
             </div>
-            <div id="Lodging-gallery-pagi">
+            <div id="Lodging-slider-pagi">
                 { currentPictureNumber +'/'+ lodgingPictures.length }
             </div>
         </div>
@@ -202,4 +202,4 @@ function LodgingGalleryComponent({ lodgingPictures, lodgingTitle }) {
 
 }
 
-export default LodgingGalleryComponent;
+export default LodginSliderComponent;
