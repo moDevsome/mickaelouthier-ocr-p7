@@ -46,7 +46,7 @@ function AboutPage() {
                     <BannerComponent id={ 'About-banner' }/>
                     <section>
                         <DropdownPanComponent title={ <h2>Fiabilité</h2> } content={ fiabilityText } defaultState={ true }/>
-                        <DropdownPanComponent title={ <h2>Respect</h2> } content={ respectText }/>
+                        <DropdownPanComponent title={ <h2>Respect</h2> } content={ respectText } defaultState={ true }/>
                         <DropdownPanComponent title={ <h2>Service</h2> } content={ serviceText } defaultState={ true }/>
                         <DropdownPanComponent title={ <h2>Responsabilité</h2> } content={ securityText } defaultState={ true }/>
                     </section>

@@ -9,20 +9,16 @@
  * -------------------------------------
  */
 
+import { useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
-import Img from '../assets/lodging-gallery-mockup.png';
-import Avatar from '../assets/loadging-host-avatar-empty.png';
+import ErrorPage from './ErrorPage';
+
 import DropdownPanComponent from '../components/utils/DropdownPanComponent';
+import LodgingGalleryComponent from '../components/blocks/LodgingGalleryComponent';
 import useFetchLodgingList from '../hooks/useFetchLodgingList.jsx'
 
-import ErrorPage from './ErrorPage';
-import { useState, useRef } from 'react';
-import LodgingGalleryComponent from '../components/blocks/LodgingGalleryComponent';
-
-
-// TODO:retirer la propriété "lodgingList" si le fait d'intéroger le back-end est confirmé
-function LodgingPage({ lodgingList }) {
+function LodgingPage() {
 
     // L'objet correspondant au logement est vide par défaut, on va récupérer les données du logement au près du back-end
     // puis on met à jour l'état une fois que l'on a trouvé le logement correspondant à l'Id
@@ -49,23 +45,6 @@ function LodgingPage({ lodgingList }) {
             return <ErrorPage/>
 
         });
-
-
-    // Sur les tablettes et smartphones, le dropdown Description est masqué par défaut
-    // @see https://www.w3schools.com/jsref/met_win_matchmedia.asp
-    const descriptionDropdownState = window.matchMedia('screen and (min-width: 441px) and (max-width: 780px)').matches || window.matchMedia('screen and (max-width: 440px)').matches ? true : false;
-
-    // On vérifie si l'ID se trouve dans la liste des logements
-    /*
-    const lodgingId = useParams()['id'] ?? '';
-    const lodging = lodgingList.find( lodging => lodging.id === lodgingId );
-
-
-    // Si l'ID n'existe pas, on passe en erreur 404
-    if(typeof(lodging) === 'undefined') return <ErrorPage httpCode={ 404 } Message={ 'Oups! La page que vous demandez n\'existe pas.' }/>
-    */
-
-    // return <ErrorPage httpCode={ 404 } Message={ 'Oups! La page que vous demandez n\'existe pas.' }/>
 
     if(apiPromise.current === true) {
 
@@ -121,7 +100,7 @@ function LodgingPage({ lodgingList }) {
                                 </div>
                             </div>
                             <div id="Lodging-details-body">
-                                <DropdownPanComponent title={ <h2>Description</h2> } content={ <p>{ lodging.description }</p> } defaultState={ descriptionDropdownState }/>
+                                <DropdownPanComponent title={ <h2>Description</h2> } content={ <p>{ lodging.description }</p> } defaultState={ true }/>
                                 <DropdownPanComponent title={ <h2>Équipements</h2> } content={
                                     <ul>
                                         {
@@ -132,6 +111,7 @@ function LodgingPage({ lodgingList }) {
                                             } )
                                         }
                                     </ul> }
+                                     defaultState={ true }
                                     customClassName="dropdown-lodging-equipements"/>
                             </div>
                         </article>
