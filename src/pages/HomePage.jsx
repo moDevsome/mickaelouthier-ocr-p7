@@ -8,15 +8,17 @@
  * ------------------------------------------------------------------------
  */
 
+import { useEffect, useRef, useState } from 'react';
+import { Link } from "react-router-dom";
+
 import BannerComponent from '../components/utils/BannerComponent';
-import Thumb from '../assets/thumb-mockup.png';
 import useFetchLodgingList from '../hooks/useFetchLodgingList.jsx'
 import ErrorPage from './ErrorPage';
 
-import { useEffect, useRef } from 'react';
-import { Link } from "react-router-dom";
+function HomePage() {
 
-function HomePage({ lodgingList, updateLodgingList }) {
+    // Etat contenant la liste des logements
+    const [lodgingList, updateLodgingList] = useState([]);
 
     useEffect(() => {
 
@@ -27,7 +29,6 @@ function HomePage({ lodgingList, updateLodgingList }) {
     }, []);
 
     /** Récupère la liste des logement via la fonction "useFetchLodgingList" */
-    // QUESTION : EST-CE QUE JE DOIS FAIRE LA MEME CHOSE SUR LA PAGE LODGING ??
     const apiPromise = useRef(false); // Passe à TRUE une fois que l'on a reçu la réponse du front-end
     useFetchLodgingList()
         .then((data) => {
